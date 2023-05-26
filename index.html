@@ -10,38 +10,271 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    @font-face {
+      font-family: 'Hanken Grotesk';
+      src: url('./assets/fonts/static/HankenGrotesk-Medium.ttf');
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Hanken Grotesk';
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      min-width: 600px;
+      min-height: 410px;
+      border-radius: 20px;
+
+      box-shadow: 15px 10px 35px 0px rgba(173,173,173,0.75);
+      -webkit-box-shadow: 15px 10px 35px 0px rgba(173,173,173,0.75);
+      -moz-box-shadow: 15px 10px 35px 0px rgba(173,173,173,0.75);
+    }
+
+    .total {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      background: linear-gradient(0deg, hsl(241, 81%, 54%), hsl(252, 100%, 67%) ) ;
+      padding: 33px;
+    }
+
+    .total > h3 {
+      color:  hsl(241, 100%, 89%);
+      margin-top: 0px;
+    }
+
+    .result-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .result {
+      background: linear-gradient(0deg,  hsla(241, 72%, 46%, 0), hsla(256, 72%, 46%, 1)) ;
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      height: 140px;
+    }
+
+    .result-number {
+      font-size: 53px;
+      font-weight: 800;
+      color: hsl(0, 0%, 100%)
+    }
+
+    .of {
+      color:  hsl(224, 30%, 60%)
+    }
+
+    .mark-description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .mark-description > h2 {
+      color: hsl(0, 0%, 100%);
+      margin-bottom: 5px;
+    }
+
+    .mark-description > p {
+      text-align: center;
+      color: hsl(241, 100%, 82%);
+      /* margin: 5px 35px 40px 35px */
+    }
+
+    .summary {
+      flex: 1;
+      padding:  33px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .summary > h3 {
+      margin-top: 0;
+      color: hsl(224, 30%, 27%);
+    }
+
+    .summary-items {
+      flex: 1
+    }
+    
+    .item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      margin: 10px 0px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      
+    }
+
+    .title > img {
+      margin-right: 10px;
+    }
+
+    .mark {
+      color: hsl(224, 30%, 27%);
+    }
+
+    .mark > span {
+      color: #a9a3a9
+    }
+
+    .reaction {
+      color:  #ff5454;
+      background-color:  hsl(6, 100%, 98%);
+    }
+
+    .memory {
+      background-color: #fffbf2;
+      color: #ffb41c;
+    }
+
+    .verbal {
+      background-color: #f2fbfa;
+      color: #08bc8c;
+    }
+
+    .visual {
+      background-color: #f3f3fd;
+      color: #1824d4;
+    }
+
+    .btn {
+      background-color: #313a59;
+      padding: 15px;
+      border-radius:  30px;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: #583df8;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 375px) { 
+
+      html, body {
+        display: block;
+      }
+
+      .card {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 0;
+      }
+
+      .total {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+      }
+
+      main {
+        height: 100%;
+      }
+      
+    }
   </style>
 </head>
 <body>
+  <main>
+     <div class="card">
+      <div class="total">
+        <h3>Your Result</h3>
+        <div class="result-container">
+            <div class="result">
+              <div class="result-number">76</div>
+              <div class="of"> of 100</div>
+            </div>
+        </div>
+        <div class="mark-description">
+          <h2>Great</h2>
+          <p>
+            You Scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
 
-  Your Result
-  76
-  of 100
-
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      </div>
+      <div class="summary">
+        <h3>Summary</h3>
+        <div class="summary-items">
+          <div class="item reaction">
+            <div class="title">
+              <img src="./assets/images/icon-reaction.svg" alt="reaction" />
+              Reaction
+            </div>
+            <div class="mark">
+                80 <span> / 100 </span>
+            </div>
+          </div>
+          <div class="item memory">
+            <div class="title">
+              <img src="./assets/images/icon-memory.svg" alt="Memory" />
+              Memory
+            </div>
+            <div class="mark">
+                92 <span> / 100 </span>
+            </div>
+          </div>
+          <div class="item verbal">
+            <div class="title">
+              <img src="./assets/images/icon-verbal.svg" alt="Verbal" />
+              Verbal
+            </div>
+            <div class="mark">
+                61 <span> / 100 </span>
+            </div>
+          </div>
+          <div class="item visual">
+            <div class="title">
+              <img src="./assets/images/icon-visual.svg" alt="Visual" />
+              Visual
+            </div>
+            <div class="mark">
+                72 <span> / 100 </span>
+            </div>
+          </div>
+        </div>
+        <button class="btn">
+          Continue
+        </button>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
